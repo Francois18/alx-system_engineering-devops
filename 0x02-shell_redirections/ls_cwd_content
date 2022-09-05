@@ -1,0 +1,31 @@
+total 52
+drwxrwxr-x 2 vagrant vagrant 4096 Sep  5 11:33 .
+drwxrwxr-x 6 vagrant vagrant 4096 Sep  5 10:24 ..
+-rwxrw-r-- 1 vagrant vagrant   32 Sep  5 10:27 0-hello_world
+-rwxrw-r-- 1 vagrant vagrant   28 Sep  5 10:34 1-confused_smiley
+-rwxrw-r-- 1 vagrant vagrant   28 Sep  5 10:57 2-hellofile
+-rwxrw-r-- 1 vagrant vagrant   44 Sep  5 11:02 3-twofiles
+-rwxrw-r-- 1 vagrant vagrant   35 Sep  5 11:14 4-lastlines
+-rwxrw-r-- 1 vagrant vagrant   35 Sep  5 11:15 5-firstlines
+-rwxrw-r-- 1 vagrant vagrant   40 Sep  5 11:24 6-third_line
+-rwxrw-r-- 1 vagrant vagrant   73 Sep  5 11:30 7-file
+-rwxrw-r-- 1 vagrant vagrant   38 Sep  5 11:32 8-cwd_state
+-rw-rw-r-- 1 vagrant vagrant   84 Sep  5 11:30 Best
+-rw-rw-r-- 1 vagrant vagrant   38 Sep  5 11:25 iact
+-rwxrw-r-- 1 vagrant vagrant    0 Sep  5 11:24 iacta
+-rw-rw-r-- 1 vagrant vagrant    0 Sep  5 11:33 ls_cwd_content
+total 52
+drwxrwxr-x 2 vagrant vagrant 4096 Sep  5 11:33 .
+drwxrwxr-x 6 vagrant vagrant 4096 Sep  5 10:24 ..
+-rwxrw-r-- 1 vagrant vagrant   32 Sep  5 10:27 0-hello_world
+-rwxrw-r-- 1 vagrant vagrant   28 Sep  5 10:34 1-confused_smiley
+-rwxrw-r-- 1 vagrant vagrant   28 Sep  5 10:57 2-hellofile
+-rwxrw-r-- 1 vagrant vagrant   44 Sep  5 11:02 3-twofiles
+-rwxrw-r-- 1 vagrant vagrant   35 Sep  5 11:14 4-lastlines
+-rwxrw-r-- 1 vagrant vagrant   35 Sep  5 11:15 5-firstlines
+-rwxrw-r-- 1 vagrant vagrant   40 Sep  5 11:24 6-third_line
+-rwxrw-r-- 1 vagrant vagrant   73 Sep  5 11:30 7-file
+-rwxrw-r-- 1 vagrant vagrant   38 Sep  5 11:32 8-cwd_state
+-rw-rw-r-- 1 vagrant vagrant   38 Sep  5 11:25 iact
+-rwxrw-r-- 1 vagrant vagrant    0 Sep  5 11:24 iacta
+-rw-rw-r-- 1 vagrant vagrant  862 Sep  5 11:33 ls_cwd_content
