@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script is displaying " School" 10 times
+counter=0
+while [ $counter -lt 10 ]; do
+    if [ $counter -eq 8 ]
+    then
+	echo -e "
+  School\nHi"
+    else
+	echo "
+  School"
+    fi
+    let counter=counter+1
+done
