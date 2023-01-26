@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Using for loop
 for _ in $(seq 1 10);
 do
