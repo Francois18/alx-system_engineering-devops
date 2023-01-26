@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 # Using while loop
 count=1
 while [ $count -le 10 ]
