@@ -3,6 +3,6 @@
 counter=0
 while [ $counter -lt 10 ];
 do
-      echo "best School"
+      echo "Best School"
       let counter=counter+1
 done
