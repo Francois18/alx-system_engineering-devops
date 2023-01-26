@@ -1,8 +1,7 @@
 #!/bin/env bash
 # Using while loop
-count=1
-while [ $count -le 10 ]
-do
-    echo "Best School"
-    count=$((count + 1))
+counter=0
+while [ $counter -lt 10 ]; do
+      echo "Holberton School"
+      let counter=counter+1
 done
