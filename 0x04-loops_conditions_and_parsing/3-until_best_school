@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Bash script that displays  School 10 times
+counter=10
+until [  $counter -lt 1 ]; do
+    echo " School"
+    let counter-=1
+done
