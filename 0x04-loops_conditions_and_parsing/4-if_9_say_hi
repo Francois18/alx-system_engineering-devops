@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 # This script is displaying " School" 10 times
-counter=0
-while [ $counter -lt 10 ]; do
-    if [ $counter -eq 8 ]
-    then
-	echo -e "
-  School\nHi"
-    else
-	echo "
-  School"
-    fi
-    let counter=counter+1
+count=1
+
+while [ $count -le 10 ]
+do
+  if [ $count -eq 9 ]
+  then
+    echo "Best School"
+    echo "Hi"
+  else
+    echo "Best School"
+  fi
+  count=$((count+1))
 done
