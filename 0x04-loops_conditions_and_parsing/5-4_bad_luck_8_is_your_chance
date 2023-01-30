@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script is displays luck messages for numbers or " School"
+# This script is displays luck messages for numbers or " Best School"
 counter=1
 while [ $counter -lt 11 ]; do
     if [ $counter -eq 4 ]
@@ -10,7 +10,7 @@ while [ $counter -lt 11 ]; do
 	echo "good luck"
     else
 	echo "
-  School"
+  Best School"
     fi
-    let counter=counter+1
+    (( counter=counter+1  ))
 done
