@@ -3,5 +3,5 @@
 counter=10
 until [  $counter -lt 1 ]; do
     echo " School"
-    let counter-=1
+   	((counter-=1))
 done
