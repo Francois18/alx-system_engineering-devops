@@ -1,5 +1,5 @@
-#!usr/bin/env bash
-
-nginx_config="/etc/nginx/nginx.conf"; grep -q "listen\s*80" "$nginx_config" || sed -i 's/listen\s*\(.*\)/listen 80;/' "$nginx_config"
-lsof -i :80 | awk 'NR==2{print $1}' | xargs -r sudo service stop; sudo ufw status | grep -q "80\s*ALLOW" || sudo ufw allow 80; sudo service nginx restart
-exit 0
+#!/usr/bin/env bash
+sudo apt-get update
+sudo apt-get install net-tools nginx -y
+sudo systemctl start nginx
+sudo sed -i 's/listen\s*80;/listen 80 default_server;/g' /etc/nginx/nginx.conf; sudo systemctl restart nginx
