@@ -1,28 +1,33 @@
 #!/usr/bin/env bash
 
-apt-get update
-apt-get install -y nginx net-tools
+# Step 1: Check Nginx configuration
+nginx_config="/etc/nginx/nginx.conf"
 
-service nginx status
-
-# Check if Nginx is listening on port 80
-if ! netstat -tuln | grep LISTEN | grep ":80"; then
-  echo "Nginx is not listening on port 80. Checking configuration files..."
-  
-  # Navigate to Nginx configuration directory
-  cd /etc/nginx
-  
-  # Inspect the configuration files and make necessary changes
-  
-  # Restart Nginx
-  service nginx restart
-  
-  # Verify if Nginx is now listening on port 80
-  if netstat -tuln | grep LISTEN | grep ":80"; then
-    echo "Nginx is now listening on port 80."
-  else
-    echo "Failed to configure Nginx to listen on port 80."
-  fi
-else
-  echo "Nginx is already listening on port 80."
+if ! grep -q "listen\s*80" "$nginx_config"; then
+    echo "Updating Nginx configuration..."
+    sed -i 's/listen\s*\(.*\)/listen 80;/' "$nginx_config"
 fi
+
+# Step 2: Check conflicting services
+conflicting_service=$(sudo lsof -i :80 | awk 'NR==2{print $1}')
+if [ -n "$conflicting_service" ]; then
+    echo "Stopping conflicting service: $conflicting_service"
+    sudo service "$conflicting_service" stop
+fi
+
+# Step 3: Check firewall rules
+if sudo ufw status | grep -q "Status: active"; then
+    if sudo ufw status | grep -q "80\s*ALLOW"; then
+        echo "Port 80 is already allowed in UFW"
+    else
+        echo "Allowing incoming traffic on port 80 in UFW..."
+        sudo ufw allow 80
+    fi
+fi
+
+# Restart Nginx
+sudo service nginx restart
+
+echo "Nginx should now be listening on port 80."
+
+exit 0
