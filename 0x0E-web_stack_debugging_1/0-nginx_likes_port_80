@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+apt-get update
+apt-get install -y nginx net-tools
+
+service nginx status
+
+# Check if Nginx is listening on port 80
+if ! netstat -tuln | grep LISTEN | grep ":80"; then
+  echo "Nginx is not listening on port 80. Checking configuration files..."
+  
+  # Navigate to Nginx configuration directory
+  cd /etc/nginx
+  
+  # Inspect the configuration files and make necessary changes
+  
+  # Restart Nginx
+  service nginx restart
+  
+  # Verify if Nginx is now listening on port 80
+  if netstat -tuln | grep LISTEN | grep ":80"; then
+    echo "Nginx is now listening on port 80."
+  else
+    echo "Failed to configure Nginx to listen on port 80."
+  fi
+else
+  echo "Nginx is already listening on port 80."
+fi
