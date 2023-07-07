@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# Install HAProxy (version 1.5 or higher)
+sudo apt-get install haproxy
+
+# Install Certbot
+sudo apt-get install certbot
+
+# Generate SSL Certificate using Certbot
+sudo certbot certonly --standalone -d www.holberton.online
+
+# Configure HAProxy for SSL Termination
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bak
+sudo bash -c "cat > /etc/haproxy/haproxy.cfg <<EOL
+global
+    # ... (existing global settings)
+
+defaults
+    # ... (existing default settings)
+
+frontend www-https
+    bind *:443 ssl crt /etc/letsencrypt/live/www.example.com/fullchain.pem
+    mode http
+    default_backend web-backend
+
+backend web-backend
+    mode http
+    balance roundrobin
+    option http-server-close
+    option forwardfor
+    server web1 127.0.0.1:80 check
+EOL"
+
+# Restart HAProxy
+sudo service haproxy restart
+
+# Verify SSL Termination
+echo "Testing SSL Termination..."
+curl -k https://www.holberton.online
+
