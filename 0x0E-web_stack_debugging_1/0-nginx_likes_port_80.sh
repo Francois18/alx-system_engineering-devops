@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!usr/bin/env bash
 # acces port 80
 string ="8080 default_server"
 new_string="80 default_server"

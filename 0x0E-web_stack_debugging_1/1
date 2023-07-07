@@ -1,11 +1,5 @@
-Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
-Get:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
-Get:3 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
-Hit:4 http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu focal InRelease
-Hit:5 https://download.docker.com/linux/ubuntu focal InRelease
-Get:6 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
-Get:7 http://archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 Packages [40.3 kB]
-Get:8 http://archive.ubuntu.com/ubuntu focal-updates/restricted amd64 Packages [2,664 kB]
-Fetched 3,041 kB in 9s (349 kB/s)
-Reading package lists...
-Reading package lists...
+./0-nginx_likes_port_80: line 3: string: command not found
+./0-nginx_likes_port_80: line 5: set: -i: invalid option
+set: usage: set [-abefhkmnptuvxBCHP] [-o option-name] [--] [arg ...]
+ * Restarting nginx nginx
+   ...done.

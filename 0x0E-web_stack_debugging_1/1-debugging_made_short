@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-sudo apt-get update
-sudo apt-get install net-tools nginx -y
+
 sudo systemctl start nginx
 sudo sed -i 's/listen\s*80;/listen 80 default_server;/g' /etc/nginx/nginx.conf; sudo systemctl restart nginx
