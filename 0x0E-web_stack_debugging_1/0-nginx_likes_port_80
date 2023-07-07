@@ -1,33 +1,6 @@
-#!/usr/bin/env bash
+#!usr/bin/env bash
 
-# Step 1: Check Nginx configuration
-nginx_config="/etc/nginx/nginx.conf"
-
-if ! grep -q "listen\s*80" "$nginx_config"; then
-    echo "Updating Nginx configuration..."
-    sed -i 's/listen\s*\(.*\)/listen 80;/' "$nginx_config"
-fi
-
-# Step 2: Check conflicting services
-conflicting_service=$(sudo lsof -i :80 | awk 'NR==2{print $1}')
-if [ -n "$conflicting_service" ]; then
-    echo "Stopping conflicting service: $conflicting_service"
-    sudo service "$conflicting_service" stop
-fi
-
-# Step 3: Check firewall rules
-if sudo ufw status | grep -q "Status: active"; then
-    if sudo ufw status | grep -q "80\s*ALLOW"; then
-        echo "Port 80 is already allowed in UFW"
-    else
-        echo "Allowing incoming traffic on port 80 in UFW..."
-        sudo ufw allow 80
-    fi
-fi
-
-# Restart Nginx
-sudo service nginx restart
-
-echo "Nginx should now be listening on port 80."
-
-exit 0
+string ="8080 default_server"
+new_string="80 default_server"
+set -i "s/$string/$new_string/" /etc/nginx/sites-enabled/default
+service nginx restart
