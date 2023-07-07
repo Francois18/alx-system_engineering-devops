@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# bash script to install nginx and set custom header
+
+apt-get -y update
+apt-get -y install nginx
+
+sudo set -i "29i\\\tadd_header X-Served-By $HOSTNAME;\n" /etc/nginx/sites-available/default
+service nginx restart
